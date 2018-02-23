@@ -40,14 +40,13 @@ public class JefeTest {
         Minion m1 = new Minion(2,false);
         Jefe j1 = new Jefe("Pepe");
         j1.agregarMinion(m1);
-        j1.masOjosSinGafas();
-        ArrayList<Minion>minionsPrueba=new ArrayList<>();
-        minionsPrueba.add(m1);
-        assertEquals(j1.masOjosSinGafas().size(),minionsPrueba.size());
-       for (int i = 0; i <j1.masOjosSinGafas().size() ; i++) {
-           Minion minionRe=j1.getMinions().get(i);
-           Minion minionF=minionsPrueba.get(i);
-           assertSame(minionRe,minionF);
+
+        ArrayList<Minion> minionsEsperado = j1.getMinions();
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertEquals(minionsEsperado.size(),minionsResultado.size());
+       for (int i = 0; i <minionsEsperado.size() ; i++) {
+           assertSame(minionsEsperado.get(i),minionsResultado.get(i));
        }
    }
 
