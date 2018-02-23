@@ -27,6 +27,11 @@ public class Minion {
         this.gafas = gafas;
     }
 
+    public Minion(int ojos,boolean gafas){
+        this.ojos=ojos;
+        this.gafas=gafas;
+    }
+
     @Override
     public String toString() {
         return "Minion{" +
