@@ -16,13 +16,13 @@ class OperacionesTest {
     @Test
     void sumarTest2(){
         Operaciones o = new Operaciones();
-        assertEquals(10, o.sumar(4,6));
+        assertNotEquals(10, o.sumar(6,6));
     }
 
     @Test
     void sumarTest3(){
         Operaciones o = new Operaciones();
-        assertFalse(o.sumar(7,6) == 12);
+        assertTrue(o.sumar(6,6) == 12);
     }
 
     @Test
@@ -40,7 +40,7 @@ class OperacionesTest {
     @Test
     void sumarTest6(){
         Operaciones o = new Operaciones();
-        assertNull(null);
+        assertNotNull(o);
     }
 
     @Test

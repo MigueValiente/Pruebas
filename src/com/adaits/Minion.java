@@ -32,6 +32,11 @@ public class Minion {
         return "Minion{" +
                 "nombre='" + nombre + '\'' +
                 ", crimenes=" + crimenes +
+                ", palabraFav='" + palabraFav + '\'' +
+                ", ojos=" + ojos +
+                ", gafas=" + gafas +
+                ", habilidades=" + habilidades +
+                ", jefe=" + jefe +
                 '}';
     }
 
@@ -106,5 +111,31 @@ public class Minion {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Minion minion = (Minion) o;
+
+        if (crimenes != minion.crimenes) return false;
+        if (ojos != minion.ojos) return false;
+        if (gafas != minion.gafas) return false;
+        if (nombre != null ? !nombre.equals(minion.nombre) : minion.nombre != null) return false;
+        if (palabraFav != null ? !palabraFav.equals(minion.palabraFav) : minion.palabraFav != null) return false;
+        if (habilidades != null ? !habilidades.equals(minion.habilidades) : minion.habilidades != null) return false;
+        return jefe != null ? jefe.equals(minion.jefe) : minion.jefe == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nombre != null ? nombre.hashCode() : 0;
+        result = 31 * result + crimenes;
+        result = 31 * result + (palabraFav != null ? palabraFav.hashCode() : 0);
+        result = 31 * result + ojos;
+        result = 31 * result + (gafas ? 1 : 0);
+        result = 31 * result + (habilidades != null ? habilidades.hashCode() : 0);
+        result = 31 * result + (jefe != null ? jefe.hashCode() : 0);
+        return result;
+    }
 }

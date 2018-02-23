@@ -27,7 +27,7 @@ class minionTest2 {
 
     @Test
     void probarSonIguales(){
-        assertSame(minion1,minion3);
+        assertEquals(minion1,minion3);
     }
 
 

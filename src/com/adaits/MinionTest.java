@@ -13,6 +13,7 @@ class MinionTest {
 
     @BeforeAll
     static void crearPersonas(){
+        Jefe gru = new Jefe("Gru");
         minions = new Minion[10];
         minions[0] = new Minion("Dave",30,"Banana",1,true);
         minions[1] = new Minion("Carl",15,"Villano",2,false);
@@ -23,6 +24,9 @@ class MinionTest {
         minions[6] = new Minion("Mark",19,"Para tu",2,true);
         minions[7] = new Minion("Phil",Integer.MIN_VALUE -1,"Bee Doo",1,false);
         minions[8] = new Minion("Kevin",Integer.MAX_VALUE+1,"Papaya",1,true);
+        for (int i = 0; i < minions.length-1; i++) {
+            gru.agregarMinion(minions[i]);
+        }
     }
 
     @BeforeEach
@@ -45,23 +49,23 @@ class MinionTest {
 
 
     @Test
-    void probarEsUnVillano(){
-        assertTrue(minions[0].esUnVillano());
+    void probarEsUnVillano1(){
+        assertTrue(minionProbar.esUnVillano());
     }
 
     @Test
     void probarEsUnVillano2(){
-        assertFalse(minions[1].esUnVillano());
+        assertFalse(minionProbar.esUnVillano());
     }
 
     @Test
     void probarEsUnVillano3(){
-        assertTrue(minions[5].esUnVillano());
+        assertTrue(minionProbar.esUnVillano());
     }
 
     @Test
     void probarEsUnVillano4(){
-        assertFalse(minions[4].esUnVillano());
+        assertFalse(minionProbar.esUnVillano());
     }
 
     @Test
@@ -70,7 +74,7 @@ class MinionTest {
     }
     @Test
     void probarEsUnVillano6(){
-        assertTrue(minions[6].esUnVillano());
+        assertTrue(minionProbar.esUnVillano());
     }
     @Test
     void probarEsUnVillano7(){
@@ -78,11 +82,11 @@ class MinionTest {
     }
     @Test
     void probarEsUnVillano8(){
-        assertFalse(minions[3].esUnVillano());
+        assertTrue(minionProbar.esUnVillano());
     }
     @Test
     void probarEsUnVillano9(){
-        assertTrue(minionProbar.esUnVillano());
+        assertFalse(minionProbar.esUnVillano());
     }
 
 
