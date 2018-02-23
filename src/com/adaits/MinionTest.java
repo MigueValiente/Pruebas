@@ -14,15 +14,15 @@ class MinionTest {
     @BeforeAll
     static void crearPersonas(){
         minions = new Minion[10];
-        minions[0] = new Minion("Dave",30);
-        minions[1] = new Minion("Carl",15);
-        minions[2] = new Minion("Stuart",Integer.MAX_VALUE);
-        minions[3] = new Minion("Jerry",Integer.MIN_VALUE);
-        minions[4] = new Minion("Jorge",17);
-        minions[5] = new Minion("Tim",18);
-        minions[6] = new Minion("Mark",19);
-        minions[7] = new Minion("Phil",Integer.MIN_VALUE -1);
-        minions[8] = new Minion("Kevin",Integer.MAX_VALUE+1);
+        minions[0] = new Minion("Dave",30,"Banana",1,true);
+        minions[1] = new Minion("Carl",15,"Villano",2,false);
+        minions[2] = new Minion("Stuart",Integer.MAX_VALUE,"Papaya",1,false);
+        minions[3] = new Minion("Jerry",Integer.MIN_VALUE,"Bello",2,true);
+        minions[4] = new Minion("Jorge",17,"Gelato",1,true);
+        minions[5] = new Minion("Tim",18,"Banana",2,false);
+        minions[6] = new Minion("Mark",19,"Para tu",2,true);
+        minions[7] = new Minion("Phil",Integer.MIN_VALUE -1,"Bee Doo",1,false);
+        minions[8] = new Minion("Kevin",Integer.MAX_VALUE+1,"Papaya",1,true);
     }
 
     @BeforeEach
@@ -46,22 +46,22 @@ class MinionTest {
 
     @Test
     void probarEsUnVillano(){
-        assertTrue(minionProbar.esUnVillano());
+        assertTrue(minions[0].esUnVillano());
     }
 
     @Test
     void probarEsUnVillano2(){
-        assertFalse(minionProbar.esUnVillano());
+        assertFalse(minions[1].esUnVillano());
     }
 
     @Test
     void probarEsUnVillano3(){
-        assertTrue(minionProbar.esUnVillano());
+        assertTrue(minions[5].esUnVillano());
     }
 
     @Test
     void probarEsUnVillano4(){
-        assertFalse(minionProbar.esUnVillano());
+        assertFalse(minions[4].esUnVillano());
     }
 
     @Test
@@ -70,7 +70,7 @@ class MinionTest {
     }
     @Test
     void probarEsUnVillano6(){
-        assertTrue(minionProbar.esUnVillano());
+        assertTrue(minions[6].esUnVillano());
     }
     @Test
     void probarEsUnVillano7(){
@@ -78,7 +78,7 @@ class MinionTest {
     }
     @Test
     void probarEsUnVillano8(){
-        assertFalse(minionProbar.esUnVillano());
+        assertFalse(minions[3].esUnVillano());
     }
     @Test
     void probarEsUnVillano9(){

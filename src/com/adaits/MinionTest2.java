@@ -18,11 +18,11 @@ class minionTest2 {
     static void crearminions(){
         minions = new Minion[2];
         minions2 = new Minion[2];
-        minion1 = new Minion("Dave",30);
-        minion2 = new Minion("Carl",15);
+        minion1 = new Minion("Dave",30,"Banana",1,true);
+        minion2 = new Minion("Carl",15,"Villano",2,false);
 
-        minion3 = new Minion("Dave",30);
-        minion4 = new Minion("Carl",15);
+        minion3 = new Minion("Dave",30,"Banana",1,true);
+        minion4 = new Minion("Carl",15,"Villano",2,false);
     }
 
     @Test
