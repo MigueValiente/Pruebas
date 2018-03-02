@@ -4,11 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JefeTest {
@@ -36,6 +33,7 @@ public class JefeTest {
    }
 
    @Test
+   @DisplayName("Prueba-1 con más de 1 ojo y sin gafas ")
     void probarOjosGafas1(){
         Minion m1 = new Minion(2,false);
         Jefe j1 = new Jefe("Pepe");
@@ -49,8 +47,198 @@ public class JefeTest {
            assertSame(minionsEsperado.get(i),minionsResultado.get(i));
        }
    }
+    @Test
+    @DisplayName("Prueba-2 con más de 1 ojo y sin gafas ")
+    void probarOjosGafas2(){
+        ArrayList<Minion> minions = new ArrayList<Minion>();
+        Minion m1 = new Minion(2,false);
+        Minion m2 = new Minion(3,false);
+        Minion m3 = new Minion(4,false);
+        Minion m4 = new Minion(1,false);
+        Minion m5 = new Minion(0,true);
+        minions.add(m1);
+        minions.add(m2);
+        minions.add(m3);
+        minions.add(m4);
+        minions.add(m5);
 
-   //Hacer pruebas de dos metodos que esten bien.
+        Jefe j1 = new Jefe("Pepe");
+        j1.agregarMinion(m1);
+        j1.agregarMinion(m2);
+        j1.agregarMinion(m3);
+        j1.agregarMinion(m4);
+        j1.agregarMinion(m5);
+
+        ArrayList<Minion> minionsEsperado=new ArrayList<>();
+        minionsEsperado.add(m1);
+        minionsEsperado.add(m2);
+        minionsEsperado.add(m3);
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertEquals(minionsEsperado.size(),minionsResultado.size());
+        Iterator it = minionsEsperado.iterator();
+        while (it.hasNext()){
+            Minion minionEsperado = (Minion) it.next();
+            assertTrue(minionsResultado.contains(minionEsperado));
+        }
+//        for (int i = 0; i <minionsEsperado.size() ; i++) {
+//            assertTrue(minionsEsperado.contains(i));
+//        }
+    }
+    @Test
+    @DisplayName("Prueba-3 con más de 1 ojo y sin gafas ")
+    void probarOjosGafas3() {
+        ArrayList<Minion> minions = new ArrayList<Minion>();
+        Minion m1 = new Minion(2, false);
+        Minion m2 = new Minion(3, false);
+        Minion m3 = new Minion(4, false);
+        Minion m4 = new Minion(1, false);
+        Minion m5 = new Minion(0, true);
+        minions.add(m1);
+        minions.add(m2);
+        minions.add(m3);
+        minions.add(m4);
+        minions.add(m5);
+
+        Jefe j1 = new Jefe("Pepe");
+        j1.agregarMinion(m1);
+        j1.agregarMinion(m2);
+        j1.agregarMinion(m3);
+        j1.agregarMinion(m4);
+        j1.agregarMinion(m5);
+
+        ArrayList<Minion> minionsEsperado = new ArrayList<>();
+        minionsEsperado.add(m5);
+        minionsEsperado.add(m4);
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertNotEquals(minionsEsperado.size(), minionsResultado.size());
+        Iterator it = minionsEsperado.iterator();
+        while (it.hasNext()) {
+            Minion minionEsperado = (Minion) it.next();
+            assertFalse(minionsResultado.contains(minionEsperado));
+        }
+    }
+
+    @Test
+    @DisplayName("Prueba-4 con más de 1 ojo y sin gafas ")
+    void probarOjosGafas4() {
+        ArrayList<Minion> minions = new ArrayList<Minion>();
+        Minion m1 = new Minion(1, false);
+        Minion m2 = new Minion(5, true);
+        Minion m3 = new Minion(2, false);
+        Minion m4 = new Minion(3, false);
+        Minion m5 = new Minion(5, false);
+        minions.add(m1);
+        minions.add(m2);
+        minions.add(m3);
+        minions.add(m4);
+        minions.add(m5);
+
+        Jefe j1 = new Jefe("Pepe");
+        j1.agregarMinion(m1);
+        j1.agregarMinion(m2);
+        j1.agregarMinion(m3);
+        j1.agregarMinion(m4);
+        j1.agregarMinion(m5);
+
+        ArrayList<Minion> minionsEsperado = new ArrayList<>();
+        minionsEsperado.add(m1);
+        minionsEsperado.add(m2);
+        minionsEsperado.add(m3);
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertEquals(minionsEsperado.size(), minionsResultado.size());
+        Iterator it = minionsEsperado.iterator();
+        int c = 0;
+        while (it.hasNext()) {
+            Minion minionEsperado = (Minion)it.next();
+
+            if (minionsEsperado.contains(minionEsperado)) {
+                c++;
+            }
+        }
+        assertTrue(c==minionsEsperado.size());
+    }
+
+    @Test
+    @DisplayName("Prueba-5 con más de 1 ojo y sin gafas ")
+    void probarOjosGafas5() {
+        ArrayList<Minion> minions = new ArrayList<Minion>();
+        Minion m1 = new Minion(1, false);
+        Minion m2 = new Minion(5, true);
+        Minion m3 = new Minion(2, false);
+        Minion m4 = new Minion(3, false);
+        Minion m5 = new Minion(5, false);
+        minions.add(m1);
+        minions.add(m2);
+        minions.add(m3);
+        minions.add(m4);
+        minions.add(m5);
+
+        Jefe j1 = new Jefe("Pepe");
+        j1.setMinions(null);
+
+        ArrayList<Minion> minionsEsperado = new ArrayList<>();
+        minionsEsperado.add(m1);
+        minionsEsperado.add(m2);
+        minionsEsperado.add(m3);
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertNotEquals(minionsEsperado.size(), minionsResultado.size());
+        Iterator it = minionsEsperado.iterator();
+        int c=0;
+        while (it.hasNext()) {
+            Minion minionEsperado = (Minion)it.next();
+            if (minionsEsperado.contains(minionEsperado)){
+                c++;
+            }
+        }
+        assertTrue(c==minionsEsperado.size());
+    }
+
+    @Test
+    @DisplayName("Prueba-6 con más de 1 ojo y sin gafas ")
+    void probarOjosGafas6() {
+        ArrayList<Minion> minions = new ArrayList<Minion>();
+        Minion m1 = new Minion(2, false);
+        Minion m2 = new Minion(5, false);
+        Minion m3 = new Minion(4, false);
+        Minion m4 = new Minion(3, false);
+        Minion m5 = new Minion(3, false);
+        minions.add(m1);
+        minions.add(m2);
+        minions.add(m3);
+        minions.add(m4);
+        minions.add(m5);
+
+        Jefe j1 = new Jefe("Pepe");
+        j1.agregarMinion(m1);
+        j1.agregarMinion(m2);
+        j1.agregarMinion(m3);
+        j1.agregarMinion(m4);
+        j1.agregarMinion(m5);
+
+        ArrayList<Minion> minionsEsperado = new ArrayList<>();
+        minionsEsperado.add(m1);
+        minionsEsperado.add(m2);
+        minionsEsperado.add(m3);
+        minionsEsperado.add(m4);
+        minionsEsperado.add(m5);
+        ArrayList<Minion> minionsResultado = j1.masOjosSinGafas();
+
+        assertEquals(minionsEsperado.size(), minionsResultado.size());
+        Iterator it = minionsEsperado.iterator();
+        int c=0;
+        while (it.hasNext()) {
+            Minion minionEsperado = (Minion)it.next();
+            if (minionsEsperado.contains(minionEsperado)) {
+                c++;
+            }
+        }
+        assertTrue(c==minionsEsperado.size());
+    }
+        //Hacer pruebas de dos metodos que esten bien.
 
 
 }
